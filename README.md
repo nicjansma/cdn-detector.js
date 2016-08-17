@@ -1,6 +1,6 @@
 # cdn-detector.js
 
-v0.1.0
+v0.1.1
 
 [http://nicj.net](http://nicj.net)
 
