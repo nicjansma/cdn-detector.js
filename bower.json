@@ -1,0 +1,28 @@
+{
+  "name": "cdn-detector",
+  "version": "0.1.0",
+  "homepage": "https://github.com/nicjansma/cdn-detector.js",
+  "authors": [
+    "Nic Jansma <nic@nicj.net>"
+  ],
+  "description": "CDN detector",
+  "main": "src/cdn-detector.js",
+  "keywords": [
+    "cdn",
+    "content delivery network"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "gulpfile.js",
+    "deps",
+    "dist",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "devDependencies": {
+    "mocha": "~1.21.5",
+    "chai": "~3.4.2"
+  }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>cdn-detector.js Test Suite</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="vendor/mocha/mocha.css" />
+        <script src="vendor/mocha/mocha.js"></script>
+        <script src="vendor/chai/chai.js"></script>
+        <!-- <script src="../data/headers.js"></script>
+        <script src="../data/hostnames.js"></script>
+        <script src="../data/multi-headers.js"></script>
+        <script src="../src/cdn-detector.js"></script> -->
+        <!-- OR use the single dist/ file: -->
+        <script src="../dist/cdn-detector.min.js"></script>
+
+    </head>
+    <body>
+        <div id="mocha"></div>
+        <script>
+            mocha.setup('bdd');
+        </script>
+        <script src="test.js"></script>
+        <script>
+            mocha.run();
+        </script>
+  </body>
+</html>
