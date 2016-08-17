@@ -1,1 +1,1 @@
-exports = require("./src/cdn-detector");
+module.exports = require("./src/cdn-detector");
