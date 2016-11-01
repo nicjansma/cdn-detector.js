@@ -124,5 +124,6 @@ var CdnDetectorHostnames = {
 	"googlesyndication\\.": "Google",
 	"hwcdn\\.net$": "Highwinds",
 	"tbcdn\\.cn$": "Taobao",
-	"youtube\\.": "Google"
+	"youtube\\.": "Google",
+	"code\\.jquery\\.com$": "jQuery"
 };
