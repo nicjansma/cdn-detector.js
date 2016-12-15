@@ -10,7 +10,7 @@
     var uglify = require("gulp-uglify");
     var mocha = require("gulp-spawn-mocha");
     var rename = require("gulp-rename");
-    var karma = require("karma").server;
+    var Server = require("karma").Server;
     var path = require("path");
     var bower = require("gulp-bower");
     var mergeJson = require("gulp-merge-json");
@@ -35,6 +35,13 @@
         return gulp.src(["*.js", "src/*.js", "test/*.js"])
             .pipe(eslint())
             .pipe(eslint.format());
+    });
+
+    gulp.task("lint:build", function() {
+        return gulp.src(["*.js", "src/*.js", "test/*.js"])
+            .pipe(eslint())
+            .pipe(eslint.format())
+            .pipe(eslint.format("checkstyle", fs.createWriteStream("eslint.xml")));
     });
 
     gulp.task("merge-json", function(cb) {
@@ -92,14 +99,14 @@
     });
 
     gulp.task("karma", ["bower", "mocha", "mocha-tap", "dist", "compress"], function(done) {
-        return karma.start({
+        new Server({
             configFile: path.join(__dirname, "karma.config.js"),
             singleRun: true
-        }, done);
+        }, done).start();
     });
 
     gulp.task("all", ["default"]);
     gulp.task("test", ["mocha", "mocha-tap", "karma"]);
-    gulp.task("default", ["bower", "lint", "merge-json", "dist", "compress", "test"]);
+    gulp.task("default", ["bower", "lint", "lint:build", "merge-json", "dist", "compress", "test"]);
     gulp.task("travis", ["default"]);
 }());
