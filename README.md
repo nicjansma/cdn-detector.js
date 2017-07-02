@@ -1,6 +1,6 @@
 # cdn-detector.js
 
-v0.1.3
+v0.1.4
 
 [http://nicj.net](http://nicj.net)
 
@@ -168,3 +168,7 @@ Or via ``gulp``:
 ## Version History
 
 * v0.1.0 - 2016-08-17: Initial version
+* v0.1.1 - 2016-08-17: Changed what inedx points to
+* v0.1.2 - 2016-08-17: Fixed module.exports
+* v0.1.3 - 2016-10-31: jQuery CDN added
+* v0.1.4 - 2017-07-02: CDN list updated
