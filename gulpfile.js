@@ -1,4 +1,5 @@
-(function(root) {
+/* eslint-env node */
+(function() {
     "use strict";
 
     //
@@ -9,7 +10,6 @@
     var eslint = require("gulp-eslint");
     var uglify = require("gulp-uglify");
     var mocha = require("gulp-spawn-mocha");
-    var rename = require("gulp-rename");
     var Server = require("karma").Server;
     var path = require("path");
     var bower = require("gulp-bower");
@@ -44,7 +44,7 @@
             .pipe(eslint.format("checkstyle", fs.createWriteStream("eslint.xml")));
     });
 
-    gulp.task("merge-json", function(cb) {
+    gulp.task("merge-json", function() {
         return es.merge(
             gulp.src("data/headers.json")
                 .pipe(mergeJson("headers.js", false, [], false, "var CdnDetectorHeaders"))

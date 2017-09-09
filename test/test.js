@@ -1,4 +1,4 @@
-/* eslint-env node, mocha */
+/* eslint-env node, mocha, browser */
 (function(root) {
     "use strict";
 
