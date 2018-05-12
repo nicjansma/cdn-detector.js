@@ -1,6 +1,6 @@
 # cdn-detector.js
 
-v0.1.5
+v0.1.6
 
 [http://nicj.net](http://nicj.net)
 
@@ -199,3 +199,4 @@ Or via ``gulp``:
 * v0.1.3 - 2016-10-31: jQuery CDN added
 * v0.1.4 - 2017-07-02: CDN list updated
 * v0.1.5 - 2018-05-12: Added a rule for Akamai and a note about forcing headers
+* v0.1.6 - 2018-05-12: Moved one dependency to dev
