@@ -238,6 +238,18 @@
 
                 expect(result).to.equal(null);
             });
+
+            it("should detect Akamai with x-akamai-request-id", function() {
+                var result = cd.detectFromHeaders({
+                    "X-Akamai-Request-ID": "2256a92",
+                });
+
+                expect(result).to.not.equal(null);
+
+                expect(result.cdn).to.equal("Akamai");
+
+                expect(result.evidence).to.contain("x-akamai-request-id: *");
+            });
         });
     });
 }(typeof window !== "undefined" ? window : undefined));

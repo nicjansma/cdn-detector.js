@@ -120,6 +120,11 @@ var CdnDetectorHeaders = [
 		"Rev Software"
 	],
 	[
+		"x-akamai-request-id",
+		"",
+		"Akamai"
+	],
+	[
 		"x-amz-cf-id",
 		"",
 		"Amazon CloudFront"
@@ -403,6 +408,7 @@ var CdnDetectorMultiHeaders = [
 //
 // https://github.com/nicjansma/cdn-detector.js
 //
+/* eslint-env commonjs, browser, amd */
 (function(window) {
     "use strict";
 
@@ -554,19 +560,21 @@ var CdnDetectorMultiHeaders = [
 
         // convert all incoming headers to lower case first
         var lowerHeaders = {};
-        for (var header in headers) {
-            if (headers.hasOwnProperty(header)) {
-                lowerHeaders[header.toLowerCase()] = headers[header];
+        for (var headerName in headers) {
+            if (headers.hasOwnProperty(headerName)) {
+                lowerHeaders[headerName.toLowerCase()] = headers[headerName];
             }
         }
 
+        var i, data, cdn, match, matches;
+
         // find any matching headers in our data
-        for (var i = 0; i < headersData.length; i++) {
-            var data = headersData[i];
+        for (i = 0; i < headersData.length; i++) {
+            data = headersData[i];
 
             var header = data[0];
-            var match = data[1];
-            var cdn = data[2];
+            match = data[1];
+            cdn = data[2];
 
             if (typeof lowerHeaders[header] === "string") {
                 // if there is no match string, we're good
@@ -580,18 +588,18 @@ var CdnDetectorMultiHeaders = [
         }
 
         // find any multi headers (multiple headers need to match)
-        for (var i = 0; i < multiHeadersData.length; i++) {
-            var data = multiHeadersData[i];
+        for (i = 0; i < multiHeadersData.length; i++) {
+            data = multiHeadersData[i];
 
-            var cdn = data[0];
-            var matches = data[1];
+            cdn = data[0];
+            matches = data[1];
 
             var matchesAll = true;
             var matchEvidence = [];
 
             // loop through, looking to see if this request matches
             // all headers in the set
-            for (var match in matches) {
+            for (match in matches) {
                 if (matches.hasOwnProperty(match)) {
                     var matchValue = matches[match];
 

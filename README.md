@@ -1,6 +1,6 @@
 # cdn-detector.js
 
-v0.1.4
+v0.1.5
 
 [http://nicj.net](http://nicj.net)
 
@@ -155,6 +155,32 @@ Via `gulp`, these are built as `data/*.js` and are included in the `dist/*.js` f
 
 In NodeJS, these files are used as-is.
 
+## Forcing Headers
+
+Some CDNs may require a HTTP Request Header to be present before they expose a HTTP
+Response Header that can be used for fingerprinting.
+
+Known examples:
+
+* [Akamai](https://community.akamai.com/community/web-performance/blog/2015/03/31/using-akamai-pragma-headers-to-investigate-or-troubleshoot-akamai-content-delivery):
+    `Pragma: akamai-x-get-request-id` will return a `X-Akamai-Request-ID`
+
+If you're using [`request`](https://github.com/request/request) to fetch the
+headers, you would add the HTTP Request Header to the `request()` options:
+
+```js
+request({
+    url: url,
+    gzip: true,
+    time: true,
+    headers: {
+        'pragma': 'akamai-x-get-request-id'
+    }
+}, function(err, response, body) {
+    ...
+});
+```
+
 ## Tests
 
 Tests are provided in the `test/` directory, and can be run via `mocha`:
@@ -168,7 +194,8 @@ Or via ``gulp``:
 ## Version History
 
 * v0.1.0 - 2016-08-17: Initial version
-* v0.1.1 - 2016-08-17: Changed what inedx points to
-* v0.1.2 - 2016-08-17: Fixed module.exports
+* v0.1.1 - 2016-08-17: Changed what `index.js` points to
+* v0.1.2 - 2016-08-17: Fixed `module.exports`
 * v0.1.3 - 2016-10-31: jQuery CDN added
 * v0.1.4 - 2017-07-02: CDN list updated
+* v0.1.5 - 2018-05-12: Added a rule for Akamai and a note about forcing headers

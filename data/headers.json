@@ -23,6 +23,7 @@
     ["via", "bitgravity", "BitGravity"],
     ["via", "cloudfront", "Amazon CloudFront"],
     ["via", "rev-cache", "Rev Software"],
+    ["x-akamai-request-id", "", "Akamai"],
     ["x-amz-cf-id", "", "Amazon CloudFront"],
     ["x-ar-debug", "", "Aryaka"],
     ["x-cache", "cache.51cdn.com", "ChinaNetCenter"],

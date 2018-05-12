@@ -120,6 +120,11 @@ var CdnDetectorHeaders = [
 		"Rev Software"
 	],
 	[
+		"x-akamai-request-id",
+		"",
+		"Akamai"
+	],
+	[
 		"x-amz-cf-id",
 		"",
 		"Amazon CloudFront"
